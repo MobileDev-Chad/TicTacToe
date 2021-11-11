@@ -19,6 +19,7 @@ class App extends Component {
       itemArray[itemNumber] = this.state.isCircle;
       this.setState({ isCircle: !itemArray[itemNumber] }, () => {});
     }
+    this.winGame();
   };
 
   chooseItemIcon = (itemNumber) => {
@@ -42,12 +43,79 @@ class App extends Component {
     this.forceUpdate();
   };
 
-  winGame = () => {};
+  winGame = () => {
+    if (
+      itemArray[0] !== "empty" &&
+      itemArray[0] == itemArray[1] &&
+      itemArray[1] == itemArray[2]
+    ) {
+      this.setState({
+        winMessage: (itemArray[0] ? "Circle" : "Cross").concat(" win")
+      });
+    } else if (
+      itemArray[3] !== "empty" &&
+      itemArray[3] == itemArray[4] &&
+      itemArray[4] == itemArray[5]
+    ) {
+      this.setState({
+        winMessage: (itemArray[0] ? "Circle" : "Cross").concat(" win")
+      });
+    } else if (
+      itemArray[6] !== "empty" &&
+      itemArray[6] == itemArray[7] &&
+      itemArray[7] == itemArray[8]
+    ) {
+      this.setState({
+        winMessage: (itemArray[6] ? "Circle" : "Cross").concat(" win")
+      });
+    } else if (
+      itemArray[0] !== "empty" &&
+      itemArray[0] == itemArray[3] &&
+      itemArray[3] == itemArray[6]
+    ) {
+      this.setState({
+        winMessage: (itemArray[0] ? "Circle" : "Cross").concat(" win")
+      });
+    } else if (
+      itemArray[1] !== "empty" &&
+      itemArray[1] == itemArray[4] &&
+      itemArray[4] == itemArray[7]
+    ) {
+      this.setState({
+        winMessage: (itemArray[1] ? "Circle" : "Cross").concat(" win")
+      });
+    } else if (
+      itemArray[2] !== "empty" &&
+      itemArray[2] == itemArray[5] &&
+      itemArray[5] == itemArray[8]
+    ) {
+      this.setState({
+        winMessage: (itemArray[2] ? "Circle" : "Cross").concat(" win")
+      });
+    } else if (
+      itemArray[0] !== "empty" &&
+      itemArray[0] == itemArray[4] &&
+      itemArray[4] == itemArray[8]
+    ) {
+      this.setState({
+        winMessage: (itemArray[0] ? "Circle" : "Cross").concat(" win")
+      });
+    } else if (
+      itemArray[2] !== "empty" &&
+      itemArray[2] == itemArray[4] &&
+      itemArray[4] == itemArray[6]
+    ) {
+      this.setState({
+        winMessage: (itemArray[2] ? "Circle" : "Cross").concat(" win")
+      });
+    }
+  };
+
 
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your555 app!</Text>
+        <Text>Open up App.js to start working on your app!</Text>
         <StatusBar style="auto" />
       </View>
     );
